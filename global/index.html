@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title> Megaptera </title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd/dist/antd.min.css" />
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdn.jsdelivr.net/npm/requirejs/require.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fratercula/humpback/lib/index.js"></script>
+<script>
+var config = {
+  packages: {
+    // dependencies
+    react: 'https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js',
+    'react-dom': 'https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js',
+    'react-router-dom': 'https://cdn.jsdelivr.net/npm/react-router-dom/umd/react-router-dom.min.js',
+    nycticorax: 'https://cdn.jsdelivr.net/npm/nycticorax/lib/index.js',
+
+    moment: 'https://cdn.jsdelivr.net/npm/moment/min/moment.min.js',
+    antd: 'https://cdn.jsdelivr.net/npm/antd/dist/antd-with-locales.min.js',
+
+    // component
+    global: './global.js',
+    'component-test': './component-test.js',
+
+    // custom
+    'switch': 'https://cdn.jsdelivr.net/npm/react-ios-switch@0.1.19/build/bundle.js',
+  },
+  routes: [
+    {
+      path: '/',
+      name: 'index',
+      components: ['switch', 'component-test'],
+    },
+    {
+      path: '/switch',
+      name: 'switch',
+      components: ['switch'],
+    }
+  ],
+}
+var humpback = new window.Humpback(config)
+humpback.start()
+</script>
+</body>
+</html>
