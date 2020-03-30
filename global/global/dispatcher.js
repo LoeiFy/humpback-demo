@@ -1,9 +1,9 @@
 export default {
-  setName: async ({ dispatch }, name) => {
+  setCount: async ({ dispatch }, count) => {
     await new Promise((r) => setTimeout(r, 300))
-    dispatch({ name })
+    dispatch({ count: Number(count) })
   },
-  getName({ getStore }) {
-    return getStore().name
+  getCount({ getStore }) {
+    return getStore().count
   },
 }

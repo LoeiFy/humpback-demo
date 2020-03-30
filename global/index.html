@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title> Megaptera </title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd/dist/antd.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd.min.css" />
 </head>
 <body>
 <div id="root"></div>
@@ -19,7 +19,7 @@ var config = {
     nycticorax: 'https://cdn.jsdelivr.net/npm/nycticorax/lib/index.js',
 
     moment: 'https://cdn.jsdelivr.net/npm/moment/min/moment.min.js',
-    antd: 'https://cdn.jsdelivr.net/npm/antd/dist/antd-with-locales.min.js',
+    antd: 'https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd-with-locales.min.js',
 
     // component
     global: './global.js',
@@ -32,11 +32,13 @@ var config = {
     {
       path: '/',
       name: 'index',
+      icon: 'dashboard',
       components: ['switch', 'component-test'],
     },
     {
       path: '/switch',
       name: 'switch',
+      icon: 'customer-service',
       components: ['switch'],
     }
   ],

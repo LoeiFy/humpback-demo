@@ -1,26 +1,22 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, Icon, Badge } from 'antd'
 import PropTypes from 'prop-types'
 import classes from './index.module.less'
-import homeSvg from './home.svg'
-import nextSvg from './integral.svg'
-import flodSvg from './flod.svg'
-import unflodSvg from './unflod.svg'
 
 class M extends Component {
   state = {
-    flod: false,
+    collapsed: false,
   }
 
-  onFlod = () => {
-    const { flod } = this.state
-    this.setState({ flod: !flod })
+  onCollapse = () => {
+    const { collapsed } = this.state
+    this.setState({ collapsed: !collapsed })
   }
 
   render() {
-    const { flod } = this.state
-    const { children, routes } = this.props
+    const { collapsed } = this.state
+    const { children, routes, store } = this.props
 
     return (
       <Layout style={{ height: '100vh' }}>
@@ -28,23 +24,25 @@ class M extends Component {
           trigger={null}
           collapsible
           width={220}
-          collapsed={flod}
+          collapsed={collapsed}
         >
-          <div className={classes.logo}>Humpback</div>
+          <div className={classes.logo}>
+            {collapsed ? '' : 'Humpback'}
+          </div>
           <Menu
             mode="inline"
             theme="dark"
             defaultSelectedKeys={['/']}
           >
             {
-              routes.map(({ name, path }) => (
+              routes.map(({ name, path, icon }) => (
                 <Menu.Item>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: path === '/' ? homeSvg : nextSvg
-                    }}
-                  />
-                  <Link key={path} to={path}>{name}</Link>
+                  <Link to={path}>
+                    <span style={{ display: 'flex', alignItems: 'center' }}>
+                      <Icon type={icon} />
+                      <span>{name}</span>
+                    </span>
+                  </Link>
                 </Menu.Item>
               ))
             }
@@ -53,12 +51,16 @@ class M extends Component {
 
         <Layout>
           <Layout.Header className={classes.header}>
-            <div
-              onClick={this.onFlod}
-              dangerouslySetInnerHTML={{
-                __html: flod ? flodSvg : unflodSvg,
-              }}
+            <Icon
+              className="trigger"
+              style={{ fontSize: 30 }}
+              type={collapsed ? 'menu-unfold' : 'menu-fold'}
+              onClick={this.onCollapse}
             />
+
+            <Badge count={store.count}>
+              <Icon type="bell" />
+            </Badge>
           </Layout.Header>
           <Layout.Content>
             {children}
@@ -77,7 +79,8 @@ export default class extends Component {
   }
 
   shouldComponentUpdate() {
-    return false
+    // return false
+    return true
   }
 
   render() {
@@ -85,6 +88,7 @@ export default class extends Component {
       Routes,
       componentCreator,
       CONFIG,
+      store,
     } = this.props
 
     const routesComponent = CONFIG.routes.map(({ path, components }) => {
@@ -108,7 +112,7 @@ export default class extends Component {
     })
 
     return (
-      <M routes={CONFIG.routes}>
+      <M routes={CONFIG.routes} store={store}>
         <Routes config={routesComponent} />
       </M>
     )
