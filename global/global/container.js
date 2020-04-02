@@ -98,7 +98,7 @@ export default class extends Component {
                   left.map((name) => {
                     const C = componentCreator(name)
                     return (
-                      <div>
+                      <div className={classes.component}>
                         <C />
                       </div>
                     )
