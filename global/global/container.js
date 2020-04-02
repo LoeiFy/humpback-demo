@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
-import { Layout, Menu, Icon, Badge, Tabs } from 'antd'
+import { Layout, Menu, Icon, Badge, Tabs, Collapse } from 'antd'
 import PropTypes from 'prop-types'
 import classes from './index.module.less'
 
@@ -106,18 +106,18 @@ export default class extends Component {
                 }
               </div>
               <div className={classes.right}>
-                <Tabs>
+                <Collapse bordered={false} defaultActiveKey={[0]}>
                   {
                     right.map((name, i) => {
                       const C = componentCreator(name)
                       return (
-                        <Tabs.TabPane tab={name} key={i}>
+                        <Collapse.Panel header={name} key={i}>
                           <C />
-                        </Tabs.TabPane>
+                        </Collapse.Panel>
                       )
                     })
                   }
-                </Tabs>
+                </Collapse>
               </div>
             </div>
           )
