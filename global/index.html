@@ -33,14 +33,22 @@ var config = {
       path: '/',
       name: 'index',
       icon: 'dashboard',
-      components: ['switch', 'component-test'],
+      components: {
+        type: 'index',
+        left: ['switch', 'component-test'],
+        right: ['switch', 'switch'],
+      },
     },
     {
       path: '/switch',
       name: 'switch',
       icon: 'customer-service',
-      components: ['switch'],
-    }
+      components: {
+        type: 'user',
+        left: 'switch',
+        right: ['switch', 'switch'],
+      },
+    },
   ],
 }
 var humpback = new window.Humpback(config)

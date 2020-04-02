@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
-import { Layout, Menu, Icon, Badge } from 'antd'
+import { Layout, Menu, Icon, Badge, Tabs } from 'antd'
 import PropTypes from 'prop-types'
 import classes from './index.module.less'
 
@@ -78,11 +78,6 @@ export default class extends Component {
     CONFIG: PropTypes.object.isRequired,
   }
 
-  shouldComponentUpdate() {
-    // return false
-    return true
-  }
-
   render() {
     const {
       Routes,
@@ -92,14 +87,67 @@ export default class extends Component {
     } = this.props
 
     const routesComponent = CONFIG.routes.map(({ path, components }) => {
-      const routeComponent = () => components.map((name) => {
-        const C = componentCreator(name)
-        return (
-          <div className={classes.component}>
-            <C />
-          </div>
-        )
-      })
+      const routeComponent = () => {
+        const { type, left, right } = components
+
+        if (type === 'index') {
+          return (
+            <div className={classes.index}>
+              <div className={classes.left}>
+                {
+                  left.map((name) => {
+                    const C = componentCreator(name)
+                    return (
+                      <div>
+                        <C />
+                      </div>
+                    )
+                  })
+                }
+              </div>
+              <div className={classes.right}>
+                <Tabs>
+                  {
+                    right.map((name, i) => {
+                      const C = componentCreator(name)
+                      return (
+                        <Tabs.TabPane tab={name} key={i}>
+                          <C />
+                        </Tabs.TabPane>
+                      )
+                    })
+                  }
+                </Tabs>
+              </div>
+            </div>
+          )
+        }
+
+        if (type === 'user') {
+          const L = componentCreator(left)
+          return (
+            <div className={classes.user}>
+              <div className={classes.left}>
+                <L />
+              </div>
+              <div className={classes.right}>
+                <Tabs>
+                  {
+                    right.map((name, i) => {
+                      const C = componentCreator(name)
+                      return (
+                        <Tabs.TabPane tab={name} key={i}>
+                          <C />
+                        </Tabs.TabPane>
+                      )
+                    })
+                  }
+                </Tabs>
+              </div>
+            </div>
+          )
+        }
+      }
 
       return (
         <Route
@@ -113,7 +161,7 @@ export default class extends Component {
 
     return (
       <M routes={CONFIG.routes} store={store}>
-        <Routes config={routesComponent} />
+        <Routes components={routesComponent} />
       </M>
     )
   }

@@ -25,3 +25,25 @@ svg {
   justify-content: space-between;
   align-items: center;
 }
+.index, .user {
+  display: flex;
+  padding: 20px;
+  align-items: stretch;
+  height: 100%;
+}
+.left, .right {
+  background: #fff;
+  border-radius: 3px;
+  overflow: auto;
+}
+.left {
+  margin-right: 20px;
+}
+.user .right,
+.index .left {
+  flex: 1;
+}
+.index .right,
+.user .left {
+  width: 360px;
+}
