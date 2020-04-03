@@ -18,18 +18,15 @@ module.exports = {
   container: {
     // global store
     store: {
-      name: 'humpback',
+      count: 10,
     },
 
     // global dispatcher
     dispatcher: {
-      setName: async ({ dispatch }, name) => {
+      setCount: async ({ dispatch }, count) => {
         await new Promise((r) => setTimeout(r, 300))
-        dispatch({ name })
-      },
-      getName({ getStore }) {
-        return getStore().name
-      },
+        dispatch({ count })
+      }
     },
   },
 
