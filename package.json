@@ -1,0 +1,26 @@
+{
+  "name": "humpback-demo",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "global": "cd components/global && mp build",
+    "button": "cd components/button && mp build",
+    "card": "cd components/card && mp build",
+    "description": "cd components/description && mp build",
+    "error": "cd components/error && mp build",
+    "photo": "cd components/photo && mp build",
+    "timeline": "cd components/timeline && mp build",
+    "user": "cd components/user && mp build",
+    "build": "npm run global && npm run button && npm run card && npm run description && npm run error && npm run photo && npm run timeline && npm run user"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoeiFy/humpback-demo.git"
+  },
+  "author": "LoeiFy <LoeiFy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LoeiFy/humpback-demo/issues"
+  },
+  "homepage": "https://github.com/LoeiFy/humpback-demo#readme"
+}
