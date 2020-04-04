@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title> Megaptera </title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd.min.css" />
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdn.jsdelivr.net/npm/requirejs/require.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fratercula/humpback/lib/index.js"></script>
+<script>
+var config = {
+  packages: {
+    // dependencies
+    react: 'https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js',
+    'react-dom': 'https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js',
+    'react-router-dom': 'https://cdn.jsdelivr.net/npm/react-router-dom/umd/react-router-dom.min.js',
+    nycticorax: 'https://cdn.jsdelivr.net/npm/nycticorax/lib/index.js',
+
+    moment: 'https://cdn.jsdelivr.net/npm/moment/min/moment.min.js',
+    antd: 'https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd-with-locales.min.js',
+
+    global: './dist/global.js',
+    button: './dist/button.js',
+    card: './dist/card.js',
+    description: './dist/description.js',
+    error: './dist/error.js',
+    photo: './dist/photo.js',
+    timeline: './dist/timeline.js',
+    user: './dist/user.js',
+  },
+  routes: [
+    {
+      path: '/',
+      name: 'index',
+      icon: 'dashboard',
+      components: {
+        type: 'index',
+        left: ['card', 'timeline'],
+        right: ['button', 'error'],
+      },
+    },
+    {
+      path: '/switch',
+      name: 'switch',
+      icon: 'customer-service',
+      components: {
+        type: 'user',
+        left: 'user',
+        right: ['description', 'photo'],
+      },
+    },
+  ],
+}
+var humpback = new window.Humpback(config)
+humpback.start()
+</script>
+</body>
+</html>

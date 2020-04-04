@@ -11,7 +11,8 @@
     "photo": "cd components/photo && mp build",
     "timeline": "cd components/timeline && mp build",
     "user": "cd components/user && mp build",
-    "build": "npm run global && npm run button && npm run card && npm run description && npm run error && npm run photo && npm run timeline && npm run user"
+    "build": "npm run global && npm run button && npm run card && npm run description && npm run error && npm run photo && npm run timeline && npm run user",
+    "postbuild": "mkdir -p docs && cp -r components/*/dist docs"
   },
   "repository": {
     "type": "git",
