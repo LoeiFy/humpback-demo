@@ -9,16 +9,11 @@ const {
   createStore,
   connect,
   dispatch,
-  getStore,
 } = new Nycticorax()
 
 createStore({ name: 'Megaptera' })
 
 class X extends Component {
-  static getName() {
-    return getStore().name
-  }
-
   static async setName(name) {
     await new Promise((r) => setTimeout(r, 1000))
     dispatch({ name }, true)
