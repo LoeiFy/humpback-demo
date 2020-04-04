@@ -1,0 +1,9 @@
+{
+  "name": "input",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "mp start",
+    "build": "mp build"
+  }
+}

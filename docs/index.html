@@ -29,6 +29,7 @@ var config = {
     photo: './dist/photo.js',
     timeline: './dist/timeline.js',
     user: './dist/user.js',
+    input: './dist/input.js',
   },
   routes: [
     {
@@ -50,6 +51,12 @@ var config = {
         left: 'user',
         right: ['description', 'photo'],
       },
+    },
+    {
+      path: '/form/:id',
+      name: 'form',
+      icon: 'user',
+      components: ['input'],
     },
   ],
 }

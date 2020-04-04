@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
-import { Layout, Menu, Icon, Badge, Tabs, Collapse, Button } from 'antd'
+import { Tag, Layout, Menu, Icon, Badge, Tabs, Collapse, Button, message } from 'antd'
 import PropTypes from 'prop-types'
 import classes from './index.module.less'
 
@@ -16,7 +16,11 @@ class M extends Component {
 
   onClick = () => {
     const names = ['lorem', 'ipsum', 'acciuy', '6666']
-    this.props.dispatch('card', 'setName', names[Date.now() % 4])
+    try {
+      this.props.dispatch('card', 'setName', names[Date.now() % 4])
+    } catch (e) {
+      message.error(e)
+    }
   }
 
   render() {
@@ -42,7 +46,7 @@ class M extends Component {
             {
               routes.map(({ name, path, icon }) => (
                 <Menu.Item>
-                  <Link to={path}>
+                  <Link to={name === 'form' ? '/form/5' : path}>
                     <span style={{ display: 'flex', alignItems: 'center' }}>
                       <Icon type={icon} />
                       <span>{name}</span>
@@ -70,6 +74,17 @@ class M extends Component {
               >
                 name
               </Button>
+            </div>
+
+            <div>
+              Shortcut:
+              {
+                store.paths.map((path) => (
+                  <Link key={path} to={path}>
+                    <Button type="link">{path}</Button>
+                  </Link>
+                ))
+              }
             </div>
 
             <Badge count={store.count}>
@@ -162,6 +177,21 @@ export default class extends Component {
             </div>
           )
         }
+
+        return (
+          <div className={classes.index}>
+            {
+              components.map((name) => {
+                const C = componentCreator(name)
+                return (
+                  <div style={{ width: '100%' }} className={classes.component}>
+                    <C />
+                  </div>
+                )
+              })
+            }
+          </div>
+        )
       }
 
       return (

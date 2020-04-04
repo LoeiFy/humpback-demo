@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title> Megaptera </title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd.min.css" />
+<title> Megaptera </title>
 </head>
 <body>
 <div id="root"></div>
@@ -23,39 +23,12 @@ var config = {
 
     // component
     global: './global.js',
-    'card': './card.js',
+    'component-test': './component-test.js',
+    'input': './input.js',
 
     // custom
-    'switch': 'https://cdn.jsdelivr.net/npm/react-ios-switch@0.1.19/build/bundle.js',
+    // antd: 'https://unpkg.com/antd',
   },
-  routes: [
-    {
-      path: '/',
-      name: 'index',
-      icon: 'dashboard',
-      components: {
-        type: 'index',
-        left: ['switch', 'card'],
-        right: ['switch', 'switch'],
-      },
-    },
-    {
-      path: '/switch',
-      name: 'switch',
-      icon: 'customer-service',
-      components: {
-        type: 'user',
-        left: 'switch',
-        right: ['switch', 'switch'],
-      },
-    },
-    {
-      path: '/form/:id',
-      name: 'form',
-      icon: 'user',
-      components: ['switch'],
-    },
-  ],
 }
 var humpback = new window.Humpback(config)
 humpback.start()

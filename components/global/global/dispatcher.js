@@ -3,7 +3,11 @@ export default {
     await new Promise((r) => setTimeout(r, 300))
     dispatch({ count: Number(count) })
   },
-  getCount({ getStore }) {
-    return getStore().count
+  savePath({ dispatch, getStore }, path) {
+    const { paths } = getStore()
+    if (!paths.includes(path)) {
+      paths.push(path)
+    }
+    dispatch({ paths })
   },
 }
