@@ -1,10 +1,24 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react'
+import Nycticorax from 'nycticorax'
 import { Card, Button, Icon } from 'antd'
 import PropTypes from 'prop-types'
 import classes from './index.module.less'
 
-export default class extends Component {
+const {
+  createStore,
+  connect,
+  dispatch,
+} = new Nycticorax()
+
+createStore({ name: 'Running' })
+
+class X extends Component {
+  static async setName(name) {
+    await new Promise((r) => setTimeout(r, 1000))
+    dispatch({ name }, true)
+  }
+
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     store: PropTypes.object.isRequired,
@@ -28,13 +42,15 @@ export default class extends Component {
 
   render() {
     const { items } = this.state
+    const { name } = this.props
 
     return (
       <div className={classes.main}>
         <Card
-          title="Running"
+          title={name}
           extra={(
             <Button
+              type="primary"
               icon="minus-circle"
               onClick={this.onClick}
             >
@@ -58,3 +74,5 @@ export default class extends Component {
     )
   }
 }
+
+export default connect('name')(X)

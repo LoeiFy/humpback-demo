@@ -16,7 +16,7 @@ export default class extends Component {
   render() {
     return (
       <Tooltip placement="bottom" title="add count">
-        <Button onClick={this.onClick} icon="plus-circle">count</Button>
+        <Button type="primary" onClick={this.onClick} icon="plus-circle">count</Button>
       </Tooltip>
     )
   }

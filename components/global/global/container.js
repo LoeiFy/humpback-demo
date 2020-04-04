@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
-import { Layout, Menu, Icon, Badge, Tabs, Collapse } from 'antd'
+import { Layout, Menu, Icon, Badge, Tabs, Collapse, Button } from 'antd'
 import PropTypes from 'prop-types'
 import classes from './index.module.less'
 
@@ -12,6 +12,11 @@ class M extends Component {
   onCollapse = () => {
     const { collapsed } = this.state
     this.setState({ collapsed: !collapsed })
+  }
+
+  onClick = () => {
+    const names = ['lorem', 'ipsum', 'acciuy', '6666']
+    this.props.dispatch('card', 'setName', names[Date.now() % 4])
   }
 
   render() {
@@ -51,12 +56,21 @@ class M extends Component {
 
         <Layout>
           <Layout.Header className={classes.header}>
-            <Icon
-              className="trigger"
-              style={{ fontSize: 30 }}
-              type={collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={this.onCollapse}
-            />
+            <div>
+              <Icon
+                className="trigger"
+                style={{ fontSize: 30 }}
+                type={collapsed ? 'menu-unfold' : 'menu-fold'}
+                onClick={this.onCollapse}
+              />
+              <Button
+                style={{ marginLeft: 10 }}
+                icon="edit"
+                onClick={this.onClick}
+              >
+                name
+              </Button>
+            </div>
 
             <Badge count={store.count}>
               <Icon type="bell" />
@@ -81,6 +95,7 @@ export default class extends Component {
   render() {
     const {
       Routes,
+      dispatch,
       componentCreator,
       CONFIG,
       store,
@@ -160,7 +175,7 @@ export default class extends Component {
     })
 
     return (
-      <M routes={CONFIG.routes} store={store}>
+      <M routes={CONFIG.routes} store={store} dispatch={dispatch}>
         <Routes components={routesComponent} />
       </M>
     )

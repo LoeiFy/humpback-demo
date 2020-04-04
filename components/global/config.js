@@ -11,21 +11,18 @@ module.exports = {
   // test component
   component: {
     // test component name
-    name: 'component-test',
+    name: 'card',
 
     // test component store
     store: {
-      message: 'test',
+      name: 'megggg',
     },
 
     // test component dispatcher
-    dispatcher(dispatch, getStore) {
+    dispatcher(dispatch) {
       return {
-        setMessage(message) {
-          dispatch({ message })
-        },
-        getMessage() {
-          return getStore().message
+        setName(name) {
+          dispatch({ name })
         },
       }
     },
