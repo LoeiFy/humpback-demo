@@ -25,6 +25,7 @@ export default class extends Component {
     return (
       <Descriptions
         bordered
+        style={{ margin: 30 }}
         title={(
           <Button
             loading={loading}

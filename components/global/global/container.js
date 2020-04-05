@@ -7,6 +7,7 @@ import classes from './index.module.less'
 class M extends Component {
   state = {
     collapsed: false,
+    loading: false,
   }
 
   onCollapse = () => {
@@ -14,17 +15,19 @@ class M extends Component {
     this.setState({ collapsed: !collapsed })
   }
 
-  onClick = () => {
-    const names = ['lorem', 'ipsum', 'acciuy', '6666']
+  onClick = async () => {
+    const names = ['Lorem', 'YIpsum', 'Acciuy', 'Sahyame']
+    this.setState({ loading: true })
     try {
-      this.props.dispatch('card', 'setName', names[Date.now() % 4])
+      await this.props.dispatch('card', 'setName', names[Date.now() % 4])
     } catch (e) {
       message.error(e)
     }
+    this.setState({ loading: false })
   }
 
   render() {
-    const { collapsed } = this.state
+    const { collapsed, loading } = this.state
     const { children, routes, store } = this.props
 
     return (
@@ -68,6 +71,7 @@ class M extends Component {
                 onClick={this.onCollapse}
               />
               <Button
+                loading={loading}
                 style={{ marginLeft: 10 }}
                 icon="edit"
                 onClick={this.onClick}
@@ -77,7 +81,7 @@ class M extends Component {
             </div>
 
             <div>
-              Shortcut:
+              { store.paths.length ? 'Shortcut:' : '' }
               {
                 store.paths.map((path) => (
                   <Link key={path} to={path}>

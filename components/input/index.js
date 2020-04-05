@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import Nycticorax from 'nycticorax'
 import PropTypes from 'prop-types'
-import { Form, Icon, Input, Button, Checkbox, Card, Tag, Tooltip } from 'antd'
+import { Form, Icon, Input, Button, Checkbox, Card, Tag, Tooltip, message } from 'antd'
 import classes from './index.module.less'
 
 const {
@@ -33,6 +33,7 @@ class X extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         this.props.dispatch('input', 'saveState', { global: values.global })
+        message.success('success to save global data')
       }
     })
   }
@@ -74,6 +75,7 @@ class X extends Component {
             initialValue: data.global,
           })(
             <Input
+              autoComplete="off"
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="global state"
             />,
@@ -85,6 +87,7 @@ class X extends Component {
             initialValue: local,
           })(
             <Input
+              autoComplete="off"
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="local state"
             />,
@@ -101,7 +104,6 @@ class X extends Component {
           <Button type="primary" htmlType="submit" className={classes.button}>
             Save
           </Button>
-          Or <a>register now!</a>
         </Form.Item>
       </Form>
     )

@@ -1,15 +1,28 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react'
-import { Card } from 'antd'
+import { Card, Icon, Avatar } from 'antd'
 
 export default function () {
   return (
     <Card
-      hoverable
-      style={{ width: 240, height: 393 }}
-      cover={<img alt="example" src="https://source.unsplash.com/480x600/?css" />}
+      style={{ width: 300, margin: 30 }}
+      cover={
+        <img
+          alt="example"
+          src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+        />
+      }
+      actions={[
+        <Icon type="setting" key="setting" />,
+        <Icon type="edit" key="edit" />,
+        <Icon type="ellipsis" key="ellipsis" />,
+      ]}
     >
-      <Card.Meta title="Europe Street beat" description="www.instagram.com" />
+      <Card.Meta
+        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+        title="Card title"
+        description="This is the description"
+      />
     </Card>
   )
 }

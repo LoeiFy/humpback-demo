@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "start": "cd docs && pv",
     "global": "cd components/global && mp build",
     "button": "cd components/button && mp build",
     "card": "cd components/card && mp build",
@@ -13,7 +14,17 @@
     "user": "cd components/user && mp build",
     "input": "cd components/input && mp build",
     "build": "npm run global && npm run button && npm run card && npm run description && npm run error && npm run photo && npm run timeline && npm run user && npm run input",
-    "postbuild": "mkdir -p docs && cp -r components/*/dist docs"
+    "postbuild": "mkdir -p docs && cp -r components/*/dist docs",
+
+    "dev:global": "cd components/global && mp start",
+    "dev:button": "cd components/button && mp start",
+    "dev:card": "cd components/card && mp start",
+    "dev:description": "cd components/description && mp start",
+    "dev:error": "cd components/error && mp start",
+    "dev:input": "cd components/input && mp start",
+    "dev:photo": "cd components/photo && mp start",
+    "dev:timeline": "cd components/timeline && mp start",
+    "dev:user": "cd components/user && mp start"
   },
   "repository": {
     "type": "git",

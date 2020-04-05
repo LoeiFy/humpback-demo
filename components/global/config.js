@@ -21,7 +21,8 @@ module.exports = {
     // test component dispatcher
     dispatcher(dispatch) {
       return {
-        setName(name) {
+        setName: async (name) => {
+          await new Promise((r) => setTimeout(r, 1000))
           dispatch({ name })
         },
       }
