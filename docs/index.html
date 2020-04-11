@@ -1,9 +1,34 @@
 <!doctype html>
-<html>
+<html class="loading">
 <head>
 <meta charset="UTF-8" />
 <title> Megaptera </title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd.min.css" />
+<style>
+.loading, .loaing body {
+  height: 100%;
+  margin: 0;
+}
+.loading body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading body:before {
+  content: '';
+  height: 4px;
+  width: 160px;
+  background-image:-webkit-linear-gradient(left, #0089fa 0%, #0089fa 25%, #ff002b 25%, #ff002b 50%, #ffa900 50%, #ffa900 75%, #00a753 75%, #00a753 100%);
+  background-image:linear-gradient(to right, #0089fa 0%, #0089fa 25%, #ff002b 25%, #ff002b 50%, #ffa900 50%, #ffa900 75%, #00a753 75%, #00a753 100%);
+  animation: loading 1.5s infinite ease;
+}
+@keyframes loading {
+  100% { background-position-x: 160px }
+}
+.loading #root {
+  display: none;
+}
+</style>
 </head>
 <body>
 <div id="root"></div>
@@ -21,15 +46,15 @@ var config = {
     moment: 'https://cdn.jsdelivr.net/npm/moment/min/moment.min.js',
     antd: 'https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd-with-locales.min.js',
 
-    global: './dist/global.js',
-    button: './dist/button.js',
-    card: './dist/card.js',
-    description: './dist/description.js',
-    error: './dist/error.js',
-    photo: './dist/photo.js',
-    timeline: './dist/timeline.js',
-    user: './dist/user.js',
-    input: './dist/input.js',
+    global: './dist/global/0.2.0/index.js',
+    button: './dist/button/0.0.0/index.js',
+    card: './dist/card/0.0.1/index.js',
+    description: './dist/description/0.1.0/index.js',
+    error: './dist/error/0.0.1/index.js',
+    photo: './dist/photo/0.0.3/index.js',
+    timeline: './dist/timeline/0.4.0/index.js',
+    user: './dist/user/0.0.2/index.js',
+    input: './dist/input/0.1.0/index.js',
   },
   routes: [
     {

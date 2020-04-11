@@ -111,6 +111,10 @@ export default class extends Component {
     CONFIG: PropTypes.object.isRequired,
   }
 
+  componentDidMount() {
+    document.documentElement.classList.remove('loading')
+  }
+
   render() {
     const {
       Routes,

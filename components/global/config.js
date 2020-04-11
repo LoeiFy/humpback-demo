@@ -8,6 +8,8 @@ module.exports = {
     },
   ],
 
+  output: '[name]/[version]/index.js',
+
   // test component
   component: {
     // test component name

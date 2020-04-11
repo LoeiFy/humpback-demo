@@ -7,12 +7,14 @@ module.exports = {
 
   // webpack amd externals
   externals: [
-    // {
-    //   name: 'antd',
-    //   amd: 'antd',
-    //   root: 'antd',
-    // },
+    {
+      name: 'rc-table',
+      amd: 'rc-table',
+      root: 'rcTable',
+    },
   ],
+
+  output: '[name]/[version]/index.js',
 
   // global container
   container: {

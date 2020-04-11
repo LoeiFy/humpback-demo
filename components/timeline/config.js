@@ -14,6 +14,8 @@ module.exports = {
     },
   ],
 
+  output: '[name]/[version]/index.js',
+
   // global container
   container: {
     // global store
