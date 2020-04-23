@@ -13,7 +13,7 @@ export default class extends Component {
   }
 
   onClick = async () => {
-    const names = ['扫卡里的', '撒开多久', '阿盛开的', '萨达']
+    const names = ['aksdj4', 'ccc45', 'mkkl', 'tyysa8']
     this.setState({ loading: true })
     await this.props.dispatch('user', 'setName', names[Date.now() % 4])
     this.setState({ loading: false })

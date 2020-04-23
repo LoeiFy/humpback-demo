@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
-import { Tag, Layout, Menu, Icon, Badge, Tabs, Collapse, Button, message } from 'antd'
+import { Layout, Menu, Icon, Badge, Tabs, Collapse, Button, message } from 'antd'
 import PropTypes from 'prop-types'
 import classes from './index.module.less'
 
@@ -108,7 +108,7 @@ export default class extends Component {
   static propTypes = {
     Routes: PropTypes.element.isRequired,
     componentCreator: PropTypes.func.isRequired,
-    CONFIG: PropTypes.object.isRequired,
+    config: PropTypes.object.isRequired,
   }
 
   componentDidMount() {
@@ -120,11 +120,11 @@ export default class extends Component {
       Routes,
       dispatch,
       componentCreator,
-      CONFIG,
+      config,
       store,
     } = this.props
 
-    const routesComponent = CONFIG.routes.map(({ path, components }) => {
+    const routesComponent = config.routes.map(({ path, components }) => {
       const routeComponent = () => {
         const { type, left, right } = components
 
@@ -213,8 +213,8 @@ export default class extends Component {
     })
 
     return (
-      <M routes={CONFIG.routes} store={store} dispatch={dispatch}>
-        <Routes components={routesComponent} />
+      <M routes={config.routes} store={store} dispatch={dispatch}>
+        <Routes>{routesComponent}</Routes>
       </M>
     )
   }

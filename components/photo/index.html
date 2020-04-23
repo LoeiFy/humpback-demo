@@ -8,11 +8,10 @@
 <body>
 <div id="root"></div>
 <script src="https://cdn.jsdelivr.net/npm/requirejs/require.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fratercula/humpback/lib/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fratercula/humpback@0.2.0/lib/index.js"></script>
 <script>
 var config = {
-  packages: {
-    // dependencies
+  dependencies: {
     react: 'https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js',
     'react-dom': 'https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js',
     'react-router-dom': 'https://cdn.jsdelivr.net/npm/react-router-dom/umd/react-router-dom.min.js',
@@ -22,14 +21,11 @@ var config = {
 
     moment: 'https://cdn.jsdelivr.net/npm/moment/min/moment.min.js',
     antd: 'https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd-with-locales.min.js',
-
-    // component
+  },
+  components: {
     global: './global.js',
     'component-test': './component-test.js',
     'photo': './photo.js',
-
-    // custom
-    // antd: 'https://unpkg.com/antd',
   },
 }
 var humpback = new window.Humpback(config)

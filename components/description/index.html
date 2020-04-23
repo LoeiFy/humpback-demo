@@ -8,25 +8,23 @@
 <body>
 <div id="root"></div>
 <script src="https://cdn.jsdelivr.net/npm/requirejs/require.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fratercula/humpback/lib/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fratercula/humpback@0.2.0/lib/index.js"></script>
 <script>
 var config = {
-  packages: {
-    // dependencies
+  dependencies: {
     react: 'https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js',
     'react-dom': 'https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js',
     'react-router-dom': 'https://cdn.jsdelivr.net/npm/react-router-dom/umd/react-router-dom.min.js',
     nycticorax: 'https://cdn.jsdelivr.net/npm/nycticorax/lib/index.js',
     'react-json-tree': 'https://cdn.jsdelivr.net/npm/react-json-tree/umd/react-json-tree.min.js',
     're-resizable': './re-resizable.js',
-
-    // component
+    moment: 'https://cdn.jsdelivr.net/npm/moment/min/moment.min.js',
+    antd: 'https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd-with-locales.min.js',
+  },
+  components: {
     global: './global.js',
     'user': './user.js',
     'description': './description.js',
-
-    moment: 'https://cdn.jsdelivr.net/npm/moment/min/moment.min.js',
-    antd: 'https://cdn.jsdelivr.net/npm/antd@3.26.14/dist/antd-with-locales.min.js',
 
     // custom
     // antd: 'https://unpkg.com/antd',
