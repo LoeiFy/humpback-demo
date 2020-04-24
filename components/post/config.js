@@ -5,6 +5,8 @@ module.exports = {
   // route path
   path: '/posts/:id',
 
+  defaultPath: '/posts/5',
+
   // webpack amd externals
   externals: [
     {
@@ -23,7 +25,7 @@ module.exports = {
   output: '[name]/[version]/index.js',
 
   // global container
-  container: {
+  global: {
     // global store
     store: {
       name: 'humpback',
