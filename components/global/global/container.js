@@ -47,16 +47,26 @@ class M extends Component {
             defaultSelectedKeys={['/']}
           >
             {
-              routes.map(({ name, path, icon }) => (
-                <Menu.Item>
-                  <Link to={name === 'form' ? '/form/5' : path}>
-                    <span style={{ display: 'flex', alignItems: 'center' }}>
-                      <Icon type={icon} />
-                      <span>{name}</span>
-                    </span>
-                  </Link>
-                </Menu.Item>
-              ))
+              routes.map(({ name, path, icon }) => {
+                let to = path
+                if (name === 'form') {
+                  to = '/form/5'
+                }
+                if (Array.isArray(path)) {
+                  [to] = path
+                }
+
+                return (
+                  <Menu.Item>
+                    <Link to={to}>
+                      <span style={{ display: 'flex', alignItems: 'center' }}>
+                        <Icon type={icon} />
+                        <span>{name}</span>
+                      </span>
+                    </Link>
+                  </Menu.Item>
+                )
+              })
             }
           </Menu>
         </Layout.Sider>

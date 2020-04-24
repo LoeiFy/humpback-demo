@@ -47,25 +47,16 @@ var config = {
         right: ['switch', 'switch'],
       },
     },
-    // {
-    //   path: '/posts',
-    //   name: 'posts',
-    //   icon: 'book',
-    //   components: {
-    //     type: 'posts',
-    //     left: 'card',
-    //   },
-    // },
-    // {
-    //   path: '/posts/:id',
-    //   name: 'post',
-    //   icon: 'book',
-    //   components: {
-    //     type: 'posts',
-    //     left: 'card',
-    //     right: 'switch',
-    //   },
-    // },
+    {
+      path: ['/posts', '/posts/:id'],
+      name: 'posts',
+      icon: 'book',
+      components: {
+        type: 'user',
+        left: 'switch',
+        right: ['card'],
+      },
+    },
     {
       path: '/form/:id',
       name: 'form',
