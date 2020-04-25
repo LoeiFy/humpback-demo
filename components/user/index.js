@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import { Tag } from 'antd'
 import Nycticorax from 'nycticorax'
-import PropTypes from 'prop-types'
 import classes from './index.module.less'
 
 const {
@@ -17,11 +16,6 @@ class X extends Component {
   static async setName(name) {
     await new Promise((r) => setTimeout(r, 1000))
     dispatch({ name }, true)
-  }
-
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
   }
 
   render() {

@@ -54,7 +54,8 @@ var config = {
     photo: './dist/photo/0.0.3/index.js',
     timeline: './dist/timeline/0.4.0/index.js',
     user: './dist/user/0.0.2/index.js',
-    input: './dist/input/0.1.0/index.js',
+    posts: './dist/posts/0.2.0/index.js',
+    post: './dist/post/0.0.4/index.js',
   },
   routes: [
     {
@@ -78,10 +79,14 @@ var config = {
       },
     },
     {
-      path: '/form/:id',
-      name: 'form',
-      icon: 'user',
-      components: ['input'],
+      path: ['/posts', '/posts/:id'],
+      name: 'posts',
+      icon: 'book',
+      components: {
+        type: 'user',
+        left: 'posts',
+        right: ['post'],
+      },
     },
   ],
 }

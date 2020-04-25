@@ -28,17 +28,17 @@ module.exports = {
   global: {
     // global store
     store: {
-      name: 'humpback',
+      paths: [],
     },
 
     // global dispatcher
     dispatcher: {
-      setName: async ({ dispatch }, name) => {
-        await new Promise((r) => setTimeout(r, 300))
-        dispatch({ name })
-      },
-      getName({ getStore }) {
-        return getStore().name
+      savePath({ dispatch, getStore }, path) {
+        const { paths } = getStore()
+        if (!paths.includes(path)) {
+          paths.push(path)
+        }
+        dispatch({ paths })
       },
     },
   },

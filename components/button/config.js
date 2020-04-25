@@ -17,7 +17,7 @@ module.exports = {
   output: '[name]/[version]/index.js',
 
   // global container
-  container: {
+  global: {
     // global store
     store: {
       count: 10,

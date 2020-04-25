@@ -1,13 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react'
 import { Descriptions, Badge, Button } from 'antd'
-import PropTypes from 'prop-types'
 
 export default class extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-  }
-
   state = {
     loading: false,
   }
@@ -32,7 +27,7 @@ export default class extends Component {
             onClick={this.onClick}
             icon="edit"
           >
-            name
+            修改 User 名字
           </Button>
         )}
       >

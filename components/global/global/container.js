@@ -49,9 +49,6 @@ class M extends Component {
             {
               routes.map(({ name, path, icon }) => {
                 let to = path
-                if (name === 'form') {
-                  to = '/form/5'
-                }
                 if (Array.isArray(path)) {
                   [to] = path
                 }
@@ -75,7 +72,7 @@ class M extends Component {
           <Layout.Header className={classes.header}>
             <div>
               <Icon
-                className="trigger"
+                className={classes.trigger}
                 style={{ fontSize: 30 }}
                 type={collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.onCollapse}
@@ -86,12 +83,12 @@ class M extends Component {
                 icon="edit"
                 onClick={this.onClick}
               >
-                name
+                修改 Card 名字
               </Button>
             </div>
 
             <div>
-              { store.paths.length ? 'Shortcut:' : '' }
+              { store.paths.length ? '快捷方式:' : '' }
               {
                 store.paths.map((path) => (
                   <Link key={path} to={path}>

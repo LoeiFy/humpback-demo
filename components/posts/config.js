@@ -5,6 +5,8 @@ module.exports = {
   // route path
   path: '/posts',
 
+  defaultPath: '/posts',
+
   // webpack amd externals
   externals: [
     {
@@ -20,7 +22,7 @@ module.exports = {
   // registry: 'https://registry.npm.taobao.org',
 
   // global container
-  container: {
+  global: {
     // global store
     store: {
       name: 'humpback',

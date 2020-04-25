@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import Nycticorax from 'nycticorax'
 import { Card, Button, Icon } from 'antd'
-import PropTypes from 'prop-types'
 import classes from './index.module.less'
 
 const {
@@ -17,11 +16,6 @@ class X extends Component {
   static async setName(name) {
     await new Promise((r) => setTimeout(r, 1000))
     dispatch({ name }, true)
-  }
-
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    store: PropTypes.object.isRequired,
   }
 
   state = {
@@ -54,7 +48,7 @@ class X extends Component {
               icon="minus-circle"
               onClick={this.onClick}
             >
-              count
+              减少消息数量
             </Button>
           )}
         >
