@@ -6,7 +6,7 @@ DEMO: https://loeify.github.io/humpback-demo/
 
 ## Summary
 
-`8` components and `1` container component
+`9` components and `1` global component
 
 ### components
 
@@ -14,10 +14,11 @@ DEMO: https://loeify.github.io/humpback-demo/
 - components/card
 - components/description
 - components/error
-- components/input
 - components/photo
 - components/timeline
 - components/user
+- components/posts
+- components/post
 
 ### container
 
@@ -38,10 +39,11 @@ Development npm scripts
 - card: `npm run dev:card`
 - description: `npm run dev:description`
 - error: `npm run dev:error`
-- input: `npm run dev:input`
 - photo: `npm run dev:photo`
 - timeline: `npm run dev:timeline`
 - user: `npm run dev:user`
+- posts: `npm run dev:posts`
+- post: `npm run dev:post`
 
 Build all components
 
