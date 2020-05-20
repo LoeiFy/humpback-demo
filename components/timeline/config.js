@@ -38,21 +38,19 @@ module.exports = {
   // test component
   component: {
     // test component name
-    name: 'component-test',
+    name: 'editor',
 
     // test component store
     store: {
-      message: 'test',
+      target: undefined,
+      defaultValue: undefined,
     },
 
     // test component dispatcher
-    dispatcher(dispatch, getStore) {
+    dispatcher(dispatch) {
       return {
-        setMessage(message) {
-          dispatch({ message })
-        },
-        getMessage() {
-          return getStore().message
+        setTarget(value) {
+          dispatch(value)
         },
       }
     },
