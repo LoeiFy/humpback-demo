@@ -56,6 +56,7 @@ var config = {
     user: './dist/user/0.0.2/index.js',
     posts: './dist/posts/0.2.0/index.js',
     post: './dist/post/0.0.4/index.js',
+    editor: './dist/editor/0.0.1/index.js',
   },
   routes: [
     {
@@ -64,7 +65,7 @@ var config = {
       icon: 'dashboard',
       components: {
         type: 'index',
-        left: ['card', 'timeline'],
+        left: ['card', 'timeline', 'editor'],
         right: ['button', 'error'],
       },
     },
