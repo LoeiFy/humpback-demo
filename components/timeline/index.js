@@ -11,14 +11,14 @@ const {
 
 createStore({ value: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.' })
 
-function T({ value, dispatch: dp }) {
+function T({ value, dispatch: dp, mountedComponents }) {
   return (
     <Card
       title="Status"
       bordered={false}
-      extra={(
+      extra={mountedComponents.includes('editor') ? (
         <Button onClick={() => dp('editor', 'setTarget', { target: 'timeline', defaultValue: value })}>编辑器</Button>
-      )}
+      ) : null}
     >
       <Timeline mode="alternate">
         <Timeline.Item>

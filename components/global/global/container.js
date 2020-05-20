@@ -193,6 +193,29 @@ export default class extends Component {
           )
         }
 
+        if (type === 'post') {
+          const L = componentCreator(left)
+          return (
+            <div className={classes.user}>
+              <div className={classes.left}>
+                <L />
+              </div>
+              <div className={classes.right}>
+                {
+                  right.map((name, i) => {
+                    const C = componentCreator(name)
+                    return (
+                      <div className={classes.component}>
+                        <C />
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          )
+        }
+
         return (
           <div className={classes.index}>
             {

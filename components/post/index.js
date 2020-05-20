@@ -14,7 +14,7 @@ class R extends Component {
   static editorValue = (content) => dispatch({ content })
 
   render() {
-    const { match, value, content } = this.props
+    const { match, value, content, mountedComponents } = this.props
 
     return (
       <Card
@@ -27,7 +27,11 @@ class R extends Component {
             >
               保存快捷方式
             </Button>
-            <Button onClick={() => this.props.dispatch('editor', 'setTarget', { target: 'post', defaultValue: content })}>编辑器</Button>
+            {
+              mountedComponents.includes('editor')
+                ? <Button onClick={() => this.props.dispatch('editor', 'setTarget', { target: 'post', defaultValue: content })}>编辑器</Button>
+                : null
+            }
           </>
         )}
         title={`路由参数: ${match.params.id}`}
