@@ -19,7 +19,7 @@ createStore({
 })
 
 class X extends Component {
-  static async setTarget({ target, defaultValue }) {
+  static async open(defaultValue, target) {
     dispatch({ target, visible: true, defaultValue }, true)
   }
 

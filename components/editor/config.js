@@ -10,6 +10,7 @@ module.exports = {
 
   props: {
     id: 12345,
+    silent: true,
   },
 
   // webpack amd externals

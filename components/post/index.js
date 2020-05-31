@@ -29,7 +29,7 @@ class R extends Component {
             </Button>
             {
               mountedComponents.includes('editor')
-                ? <Button onClick={() => this.props.dispatch('editor', 'setTarget', { target: 'post', defaultValue: content })}>编辑器</Button>
+                ? <Button onClick={() => this.props.dispatch('editor', 'open', content)}>编辑器</Button>
                 : null
             }
           </>

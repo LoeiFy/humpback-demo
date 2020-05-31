@@ -1,12 +1,12 @@
 # humpback-demo
 
-RequireJS(AMD) + React: https://github.com/fratercula/humpback
+RequireJS(AMD) + React: https://github.com/humpbackjs/humpback
 
-DEMO: https://loeify.github.io/humpback-demo/
+https://humpbackjs.github.io/humpback-demo/
 
 ## Summary
 
-`9` components and `1` global component
+`10` components and `1` global component
 
 ### components
 
@@ -19,6 +19,7 @@ DEMO: https://loeify.github.io/humpback-demo/
 - components/user
 - components/posts
 - components/post
+- components/editor
 
 ### container
 
@@ -44,6 +45,7 @@ Development npm scripts
 - user: `npm run dev:user`
 - posts: `npm run dev:posts`
 - post: `npm run dev:post`
+- editor: `npm run dev:post`
 
 Build all components
 

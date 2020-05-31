@@ -42,15 +42,14 @@ module.exports = {
 
     // test component store
     store: {
-      target: undefined,
       defaultValue: undefined,
     },
 
     // test component dispatcher
     dispatcher(dispatch) {
       return {
-        setTarget(value) {
-          dispatch(value)
+        open(defaultValue) {
+          dispatch({ defaultValue })
         },
       }
     },

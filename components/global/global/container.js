@@ -144,7 +144,7 @@ export default class extends Component {
                     const C = componentCreator(name)
                     return (
                       <div className={classes.component}>
-                        <C />
+                        <C silent={name === 'editor'} />
                       </div>
                     )
                   })
@@ -206,7 +206,7 @@ export default class extends Component {
                     const C = componentCreator(name)
                     return (
                       <div className={classes.component}>
-                        <C />
+                        <C silent={name === 'editor'} />
                       </div>
                     )
                   })

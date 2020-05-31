@@ -17,7 +17,7 @@ function T({ value, dispatch: dp, mountedComponents }) {
       title="Status"
       bordered={false}
       extra={mountedComponents.includes('editor') ? (
-        <Button onClick={() => dp('editor', 'setTarget', { target: 'timeline', defaultValue: value })}>编辑器</Button>
+        <Button onClick={() => dp('editor', 'open', value)}>编辑器</Button>
       ) : null}
     >
       <Timeline mode="alternate">
